@@ -1,0 +1,274 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: f01&#45;01&#45;01
+      id: f01-45-01-45-01
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: f01&#45;01&#45;01
+        setup-command: make compile
+        command: make -s test_01
+        input: |
+          student-add#12S21001#Dhino Turnip#2021#male
+          student-add#12S21002#Marudut Tampubolon#2021#male
+          student-add#12S21003#Jusas Tampubolon#2021#male
+          student-add#12S21004#Estomihi pangaribuan#2021#male
+          student-add#12S21006#Weny Sitinjak#2021#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          dorm-add#Antiokia#5#male
+          dorm-add#Kapernaum#5#male
+          dorm-add#Pniel#5#female
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Antiokia
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Antiokia
+          student-print-all-detail
+          student-leave#12S21007
+          student-leave#12S21004
+          student-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Antiokia
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Antiokia
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Antiokia
+          12S21004|Estomihi pangaribuan|2021|male|left
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|left
+          12S21008|Tuani Manurung|2021|male|Antiokia
+        comparison-method: exact
+        timeout: 1
+        max-score: 20
+    - name: f01&#45;01&#45;02
+      id: f01-45-01-45-02
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: f01&#45;01&#45;02
+        setup-command: make compile
+        command: make -s test_01
+        input: |
+          student-add#12S21001#Dhino Turnip#2021#male
+          student-add#12S21002#Marudut Tampubolon#2021#male
+          student-add#12S21003#Jusas Tampubolon#2021#male
+          student-add#12S21004#Estomihi pangaribuan#2021#male
+          student-add#12S21006#Weny Sitinjak#2021#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          dorm-add#Antiokia#5#male
+          dorm-add#Kapernaum#5#male
+          dorm-add#Pniel#5#female
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Kapernaum
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Kapernaum
+          student-print-all-detail
+          student-leave#12S21007
+          student-leave#12S21004
+          student-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|left
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|left
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+        comparison-method: exact
+        timeout: 1
+        max-score: 20
+    - name: f01&#45;01&#45;03
+      id: f01-45-01-45-03
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: f01&#45;01&#45;03
+        setup-command: make compile
+        command: make -s test_01
+        input: |
+          student-add#12S21001#Dhino Turnip#2021#male
+          student-add#12S21002#Marudut Tampubolon#2021#male
+          student-add#12S21003#Jusas Tampubolon#2021#male
+          student-add#12S21004#Estomihi pangaribuan#2021#male
+          student-add#12S21006#Weny Sitinjak#2021#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          dorm-add#Antiokia#5#male
+          dorm-add#Pniel#5#female
+          dorm-add#Kapernaum#5#male
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Kapernaum
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Kapernaum
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Kapernaum
+          student-print-all-detail
+          student-leave#12S21007
+          student-leave#12S21004
+          student-leave#12S21001
+          student-leave#12S21002
+          student-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|unassigned
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+          12S21001|Dhino Turnip|2021|male|left
+          12S21002|Marudut Tampubolon|2021|male|left
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|left
+          12S21006|Weny Sitinjak|2021|female|unassigned
+          12S21007|Dame Sitinjak|2021|female|left
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+        comparison-method: exact
+        timeout: 1
+        max-score: 20
+    - name: f01&#45;01&#45;04
+      id: f01-45-01-45-04
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: f01&#45;01&#45;04
+        setup-command: make compile
+        command: make -s test_01
+        input: |
+          student-add#12S21001#Dhino Turnip#2021#male
+          student-add#12S21002#Marudut Tampubolon#2021#male
+          student-add#12S21003#Jusas Tampubolon#2021#male
+          student-add#12S21004#Estomihi pangaribuan#2021#male
+          student-add#12S21006#Weny Sitinjak#2021#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          dorm-add#Antiokia#5#male
+          dorm-add#Pniel#5#female
+          dorm-add#Kapernaum#5#male
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Kapernaum
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Kapernaum
+          student-print-all-detail
+          student-leave#12S21007
+          student-leave#12S21004
+          student-leave#12S21001
+          student-leave#12S21002
+          student-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+          12S21001|Dhino Turnip|2021|male|left
+          12S21002|Marudut Tampubolon|2021|male|left
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|left
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|left
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+        comparison-method: exact
+        timeout: 1
+        max-score: 20
+    - name: f01&#45;01&#45;05
+      id: f01-45-01-45-05
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: f01&#45;01&#45;05
+        setup-command: make compile
+        command: make -s test_01
+        input: |
+          student-add#12S21001#Dhino Turnip#2021#male
+          student-add#12S21002#Marudut Tampubolon#2021#male
+          student-add#12S21003#Jusas Tampubolon#2021#male
+          student-add#12S21004#Estomihi pangaribuan#2021#male
+          student-add#12S21006#Weny Sitinjak#2021#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          dorm-add#Antiokia#5#male
+          dorm-add#Pniel#5#female
+          dorm-add#Kapernaum#5#male
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Kapernaum
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Kapernaum
+          student-print-all-detail
+          student-leave#12S21007
+          student-leave#12S21006
+          student-leave#12S21008
+          student-leave#12S21004
+          student-leave#12S21001
+          student-leave#12S21003
+          student-leave#12S21002
+          student-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Antiokia
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Kapernaum
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Kapernaum
+          12S21001|Dhino Turnip|2021|male|left
+          12S21002|Marudut Tampubolon|2021|male|left
+          12S21003|Jusas Tampubolon|2021|male|left
+          12S21004|Estomihi pangaribuan|2021|male|left
+          12S21006|Weny Sitinjak|2021|female|left
+          12S21007|Dame Sitinjak|2021|female|left
+          12S21008|Tuani Manurung|2021|male|left
+        comparison-method: exact
+        timeout: 1
+        max-score: 20
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        F01-45-01-45-01_RESULTS: "${{steps.f01-45-01-45-01.outputs.result}}"
+        F01-45-01-45-02_RESULTS: "${{steps.f01-45-01-45-02.outputs.result}}"
+        F01-45-01-45-03_RESULTS: "${{steps.f01-45-01-45-03.outputs.result}}"
+        F01-45-01-45-04_RESULTS: "${{steps.f01-45-01-45-04.outputs.result}}"
+        F01-45-01-45-05_RESULTS: "${{steps.f01-45-01-45-05.outputs.result}}"
+      with:
+        runners: f01-45-01-45-01,f01-45-01-45-02,f01-45-01-45-03,f01-45-01-45-04,f01-45-01-45-05
